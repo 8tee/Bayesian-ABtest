@@ -1,0 +1,47 @@
+
+<tr class="metricrow">
+    <th class="metricname">{metric}</th>
+    <td class="chance variation align-middle lost">
+      <div class="result-number" style="text-align:center">{risk_percent}</div>
+      <div>
+        <small class="text-muted" style="text-align:center"><em>{risk} s&nbsp;/&nbsp;user</em></small>
+      </div>
+    </td>
+    <td class="value variation">
+      <div style="text-align:center" class="result-number">{value_a}</div>
+      <div>
+        <small class="text-muted" style="text-align:center;">
+          <em style="display: inline-block; line-height: 1.3em; margin-top: 0.2em; ">
+            <span style="white-space: nowrap;">{total_a}</span> 
+            /&nbsp;{na}
+          </em>
+        </small>
+      </div>
+    </td>
+    <td class="value variation">
+      <div class="result-number" style="text-align:center">{value_b}</div>
+      <div><small class="text-muted">
+        <em style="display: inline-block; line-height: 1.3em; margin-top: 0.2em;">
+          <span style="white-space: nowrap;text-align:center">{total_b}</span> 
+          /&nbsp;{nb}
+        </em>
+      </small>
+    </div>
+  </td>
+  <td class="variation chance result-number align-middle tiptrigger d-table-cell">{chance_to_beat}</td>
+  <td class="compact-graph pb-0 align-middle"><div class="d-flex aligned-graph align-items-center aligned-graph-row">
+    <div class="flex-grow-1">
+      <div style="position: relative;">
+      </div>
+    </div>
+    <div class="expectedwrap text-right">
+      <span class="expectedArrows"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+        <path d="M413.1 222.5l22.2 22.2c9.4 9.4 9.4 24.6 0 33.9L241 473c-9.4 9.4-24.6 9.4-33.9 0L12.7 278.6c-9.4-9.4-9.4-24.6 0-33.9l22.2-22.2c9.5-9.5 25-9.3 34.3.4L184 343.4V56c0-13.3 10.7-24 24-24h32c13.3 0 24 10.7 24 24v287.4l114.8-120.5c9.3-9.8 24.8-10 34.3-.4z"></path>
+      </svg>
+    </span> 
+    <span class="expected bold">{percent_change} </span>
+  </div>
+  </div>
+  </td>
+  </tr>
+  
