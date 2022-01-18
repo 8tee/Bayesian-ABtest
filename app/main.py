@@ -38,7 +38,7 @@ df = df.loc[
   & (df.timestamp <= install_date_choice[1])
 ]
 
-st.text("Shape of dataframe" +  df.shape)
+st.text("Shape of dataframe", df.shape)
 st.write(df)
 
 st.header('Experiment')
