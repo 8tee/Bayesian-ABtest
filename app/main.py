@@ -6,18 +6,23 @@ import bayes
 st.set_page_config(layout="wide", page_title= "ABtest", page_icon= "random")
 st.title("A/B test")
 
-
 st.markdown(""" <style>
 #MainMenu {visibility: hidden;}
 footer {visibility: hidden;}
 </style> """, unsafe_allow_html=True)
 
 # try
-uploaded_file = st.file_uploader("Choose a file")
-if uploaded_file is not None:
-  df = pd.read_csv(uploaded_file)
-else:
-  st.info("Please upload raw data file")
+data_file = st.container()
+with data_file:
+  uploaded_file = st.file_uploader("Choose a raw data file")
+  demo_data = st.checkbox("Use a demo dataset")
+  if uploaded_file is None:
+    if demo_data:
+      df = pd.read_csv('data/ab_data.csv')
+    else:
+      df = pd.read_csv(uploaded_file)
+  else:
+    st.info("Please upload raw data file or use demo dataset")
 
 
 # Date range
@@ -33,7 +38,7 @@ df = df.loc[
   & (df.timestamp <= install_date_choice[1])
 ]
 
-st.text(df.shape)
+st.text("Shape of dataframe" +  df.shape)
 st.write(df)
 
 st.header('Experiment')
@@ -55,7 +60,7 @@ with c_up:
     c1 = st.container() # c1 contains choices
     c2 = st.container() # c2 contains submit button
     with c2:
-      st.form_submit_button("submit")
+      st.form_submit_button("Submit")
 
 with c_down:
   col_l, _, col_r = st.columns((2,1,2))
@@ -162,5 +167,6 @@ for x in range(st.session_state["choices_len"]):
             )
     binomial_metric = binomial_metric + bin_me
 
-html_code =table + duration_metric + count_metric + binomial_metric
+html_code = table + duration_metric + count_metric + binomial_metric
+
 st.components.v1.html(html_code, height= 1000, scrolling=True)
